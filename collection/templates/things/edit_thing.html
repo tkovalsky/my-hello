@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+	Edit {{ thing.name }} - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+	<h1>Edit "{{ thing.name }}" </h1>
+	<form role="form" action="" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+<!---
+* Adding .as_p to our form variable is optional — it’ll render the form fields wrapped in <p> tags. You can also do .as_-
+ul (wrapped in <li> tags, you’ll still need to add the surrounding <ul> tag) or as .as_table (you’ll still need
+to add surrounding <table> tags.) Read more about that here: http://hellowebapp.com/22.
+-->
+
+		<button type="submit">Submit</button>
+	</form>
+{% endblock content %}
+
