@@ -1,0 +1,464 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- These meta tags come first. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+
+
+  <title>
+		{% block title %}
+        	Data Analysis Solutions
+		{% endblock title %}
+	</title>
+
+        <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic|Work+Sans:300,400,500,600' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/toolkit-startup.css' %}" />
+        <link href="{% static 'css/application-startup.css' %}" rel="stylesheet">
+
+        <style>
+          /* note: this is a hack for ios iframe for bootstrap themes shopify page */
+          /* this chunk of css is not part of the toolkit :) */
+          /* …curses ios, etc… */
+          @media (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+            body {
+              width: 1px;
+              min-width: 100%;
+              *width: 100%;
+            }
+            #stage {
+              height: 1px;
+              overflow: auto;
+              min-height: 100vh;
+              -webkit-overflow-scrolling: touch;
+            }
+          }
+        </style>
+
+	{% block header %} {% endblock header %}
+</head>
+
+
+  <body>
+
+    <div class="stage-shelf stage-shelf-right hidden" id="sidebar">
+      <ul class="nav nav-bordered nav-stacked">
+        <li class="nav-header">Examples</li>
+        <li class="active">
+          <a href="index.html">Startup</a>
+        </li>
+        <li>
+          <a href="minimal/index.html">Minimal</a>
+        </li>
+        <li>
+          <a href="bold/index.html">Bold</a>
+        </li>
+        <li class="nav-divider"></li>
+        <li class="nav-header">Docs</li>
+        <li>
+          <a href="docs/index.html">Toolkit</a>
+        </li>
+        <li>
+          <a href="http://getbootstrap.com">Bootstrap</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="stage" id="stage">
+
+    <div class="block block-inverse block-fill-height app-header"
+         style="background-image: url({% static 'img/startup-1.jpg' %});">
+
+
+      <nav class="navbar navbar-transparent navbar-fixed-top navbar-padded app-navbar p-t-md">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed p-x-0"
+                  data-target="#stage" data-toggle="stage" data-distance="-250">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!--
+            <a class="navbar-brand" href="">
+            <strong style="background: #fff; padding: 12px; border-radius: 4px; color: #28669F;">
+              go
+            </strong>
+          </a>
+        -->
+        </div>
+        <div class="navbar-collapse collapse text-uppercase">
+          <ul class="nav navbar-nav navbar-right">
+            <li >
+              <a href="{% url 'home' %}">Home</a>
+            </li>
+            <li >
+              <a href="{% url 'about' %}">About</a>
+            </li>
+            <li >
+              <a href="{% url 'contact' %}">Contact</a>
+            </li>
+            <li >
+              <a href="{% url 'browse' %}">Browse</a>
+            </li>
+<!--
+            <li >
+              <a href="{% url 'auth_login' %}">Login</a>
+            </li>
+
+            <li >
+              <a href="{% url 'registration_register' %}">Sign Up</a>
+            </li>
+
+
+            <li >
+              <a href="docs/index.html">Docs</a>
+            </li>
+
+
+        {% if user.is_authenticated %}
+        <li >
+          <a href="{% url 'auth_logout' %}">Logout</a>
+        </li>
+-->
+<!-- add a link to settings page or admin for logged in user -->
+        {% endif %}
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+{% block content %}
+
+  <img class="app-graph" src="{% static 'img/startup-0.svg' %}">
+<!--
+    <div class="block-xs-middle p-b-lg">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-10 col-md-6">
+            <h1 class="block-title m-b-sm">Analytics on demand.</h1>
+            <p class="lead m-b-md text-muted">Stop installing bloated scripts that all track the exact same things. Install one that does everything.</p>
+            <button class="btn btn-primary btn-lg">Try it now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+<!--Start block from bold theme-->
+<div class="block-sm-middle block-xs-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-5">
+            <h1 class="block-title m-b-md">
+              <span class="text-ribbon text-ribbon-primary">
+                <span>Problems. Solved.</span>
+              </span>
+            </h1>
+            <p class="lead">
+              <span class="text-ribbon text-ribbon-primary">
+                <span>
+                  I am a solutions consultant delivering the right solutions for your business needs.
+                </span>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--- End block fmor bold theme--->
+
+
+  <div class="block block-secondary app-iphone-block">
+    <div class="container">
+      <div class="row app-align-center">
+
+        <div class="col-sm-5 hidden-xs">
+          <img class="app-iphone" src="{% static 'img/startup-2.jpg' %}" style="width: 100%;">
+        </div>
+
+        <div class="col-sm-6 col-sm-offset-1">
+          <h6 class="text-muted text-uppercase">Data management</h6>
+          <h3 class="m-t-0">The right data. The right time.</h3>
+          <p class="lead m-b-md">I streamline the data supply chain and help teams get the right data, by the right people, at the right time.</p>
+          <div class="row hidden-sm">
+            <div class="col-sm-6 m-b-md">
+              <h5 class="m-y-0">Data frequency</h5>
+              <p>We poll for data on a millisecond basis. You can react to new information in seconds rather than days. <a href="#" class="text-primary">Learn more.</a></p>
+            </div>
+            <div class="col-sm-6">
+              <h5 class="m-y-0">Reliability & uptime</h5>
+              <p>We process our data across a massively distributed network of reliable servers to ensure 99.99% uptime, always. <a href="#" class="text-primary">Learn more</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- end code block -->
+<!--
+  <div class="block block-inverse block-secondary app-code-block">
+    <div class="container">
+      <div class="row app-align-center">
+        <div class="col-sm-5 col-sm-push-7">
+          <pre class="app-code">
+  <span>1</span> <span class="hidden-xs">class</span> ProductManager(Models.model):
+  <span>2</span>    is_a_visionary = models.BooleanField(default=True)
+  <span>3</span>    is_a_designer = models.BooleanField(default=True)
+  <span>4</span>    is_transparent = models.BooleanField(default=True)
+  <span>5</span>    code_preference = models.Charfield(
+                    max_length=14, choices=CODE_PREF)
+  <span>6</span>    CODE_PREF = (
+  <span>7</span>         ('python', python),
+  <span>8</span>         ('html', html),
+  <span>9</span>         ('sql', sql),)
+  <span>10</span>   project_management_style = models.Charfield(
+                    max_length=14, choices=PM_STYLE)
+  <span>11</span>   PM_STYLE = (
+  <span>12</span>         ('agile', agile),
+  <span>13</span>         ('lean', lean),
+  <span>14</span>         ('kanban', kanban),
+  <span>15</span>         ('scrum', scrum),
+  <span>16</span>  }</pre>
+        </div>
+
+        <div class="col-sm-6 col-sm-pull-5">
+          <h6 class="text-muted text-uppercase">I can code</h6>
+          <h3 class="m-t-0">I have been teaching myself how to code so I could relate to software developers and understand what it takes to make a system work.</h3>
+          <p class="lead m-b-md text-muted">Complex functionality takes a long time to implement.  I like to deliver results and keep my teams focused on completing our mission.</p>
+          <button class="btn btn-default btn-lg btn-borderless">
+            Read our docs
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+<!-- end code block -->
+<!-- start quote block -->
+<!--
+  <div class="block block-secondary app-high-praise p-b-0">
+    <div class="container">
+      <div class="row app-align-center">
+        <div class="col-sm-5 col-sm-push-7">
+          <h6 class="text-muted text-uppercase">High Praise</h6>
+          <h3 class="m-t-0 m-b-md">“Go Analytics is amazing. Decisions that used to take weeks, now only takes minutes and is available to everyone on my team.”</h3>
+          <p class="m-b-md text-muted">Cindy Smith, founder of Cool Startup</p>
+        </div>
+        <div class="col-sm-6 col-sm-pull-5">
+          <img src="{# static 'img/startup-3.jpg' #}">
+        </div>
+      </div>
+    </div>
+  </div>
+-->
+<!-- end quote block -->
+  <div class="block app-ribbon p-y-lg">
+    <div class="container text-center">
+      <img src="{% static 'img/startup-4.svg' %}">
+      <img src="{% static 'img/startup-5.svg' %}">
+      <img src="{% static 'img/startup-6.svg' %}">
+      <img src="{% static 'img/startup-7.svg' %}">
+      <img src="{% static 'img/startup-8.svg' %}">
+    </div>
+  </div>
+
+  <div class="block block-secondary app-block-marketing-grid">
+    <div class="container text-center">
+
+      <div class="row m-b-lg">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+          <h6 class="text-muted text-uppercase">Inside the machine</h6>
+          <h3  class="m-t-0 m-b">It’s not hard to see how we make your life easier every day.</h3>
+        </div>
+      </div>
+
+      <div class="row app-marketing-grid">
+        <div class="col-sm-4 p-x-md m-b-lg">
+          <img class="m-b" src="{% static 'img/startup-9.svg' %}">
+          <p><strong>I am optimistic.</strong> I hope for the best and see the cup as half full.</p>
+        </div>
+        <div class="col-sm-4 p-x-md m-b-lg">
+          <img class="m-b" src="{% static 'img/startup-10.svg' %}">
+          <p><strong>I take charge.</strong> I operate at a high level but am not afraid to walk on the dirt.</p>
+        </div>
+        <div class="col-sm-4 p-x-md m-b-lg">
+          <img class="m-b" src="{% static 'img/startup-11.svg' %}">
+          <p><strong>I deliver on time.</strong> I am committed to delivering projects when I say I will.</p>
+        </div>
+      </div>
+
+      <div class="row app-marketing-grid">
+        <div class="col-sm-4 p-x-md m-b-lg">
+          <img class="m-b" src="{% static 'img/startup-12.svg' %}">
+          <p><strong>I calculate risk.</strong> I am data driven and always analyze opportunities and risks.</p>
+        </div>
+
+        <div class="col-sm-4 p-x-md m-b-lg">
+          <img class="m-b" src="{% static 'img/startup-13.svg' %}">
+          <p><strong>I'm always available.</strong> I'm a team player and am committed to helping my team, wherever, whenever.</p>
+        </div>
+        <div class="col-sm-4 p-x-md m-b-lg">
+          <img class="m-b" src="{% static 'img/startup-14.svg' %}">
+          <p><strong>I'm a stickler for quality.</strong> I notice minute details but don't let them get in the way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="block app-price-plans">
+    <div class="container text-center">
+
+      <div class="row m-b-lg">
+        <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
+          <h6 class="text-muted text-uppercase">Flexible pricing plans</h6>
+          <h3  class="m-t-0">Try it out.</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 p-x m-b-lg">
+          <div class="p-x">
+            <h6 class="text-muted text-uppercase m-b">Design</h6>
+            <!--todo - update image<img class="m-b" src="{% static 'img/startup-15.svg' %}">-->
+            <img class="m-b" src="{% static 'img/999-week.svg' %}">
+            <p>I work with your team to design a solution that solves you business problems.</p>
+          </div>
+
+          <ul class="list-unstyled list-bordered text-left m-y-md">
+            <li class="p-y"><strong>Wireframes</strong> of the user interface</li>
+            <li class="p-y"><strong>Walkthroughs</strong> of the user experience</li>
+            <li class="p-y"><strong>Prototypes</strong> of the application</li>
+          </ul>
+
+          <button class="btn btn-lg btn-primary btn-block">
+            Learn <span class="visible-lg-inline">about design</span>
+          </button>
+        </div>
+
+        <div class="col-sm-4 p-x m-b-lg">
+          <div class="p-x">
+            <h6 class="text-muted text-uppercase m-b">Analysis</h6>
+            <!--todo - update image--><img class="m-b" src="{% static 'img/startup-16.svg' %}">
+            <p>The perfect sized plan for small businesses to get started.</p>
+          </div>
+
+          <ul class="list-unstyled list-bordered text-left m-y-md">
+            <li class="p-y"><strong>100k</strong> monthly requests</li>
+            <li class="p-y"><strong>24/7</strong> technical supprt</li>
+            <li class="p-y"><strong>Public</strong> API access</li>
+          </ul>
+
+          <button class="btn btn-lg btn-primary btn-block">
+            Start <span class="visible-lg-inline">a business account</span>
+          </button>
+        </div>
+
+        <div class="col-sm-4 p-x m-b-lg">
+          <div class="p-x">
+            <h6 class="text-muted text-uppercase m-b">Corporate</h6>
+            <!--todo - update image--><img class="m-b" src="{% static 'img/startup-17.svg' %}">
+            <p>An unlimited plan that will scale infinitely to any size project.</p>
+          </div>
+
+          <ul class="list-unstyled list-bordered text-left m-y-md">
+            <li class="p-y"><strong>Unlimited</strong> monthly requests</li>
+            <li class="p-y"><strong>24/7</strong> technical supprt</li>
+            <li class="p-y"><strong>Public & Private</strong> API access</li>
+          </ul>
+
+          <button class="btn btn-lg btn-primary btn-block">
+            Start <span class="visible-lg-inline">a corporate account</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+{% endblock content %}
+{% block footer %}
+  <div class="block block-inverse app-footer">
+   <div class="container">
+      <div class="row">
+        <div class="col-sm-5 m-b-md">
+          <ul class="list-unstyled list-spaced">
+            <li class="m-b"><h6 class="text-uppercase">About</h6></li>
+            <li class="text-muted">
+             We’ve been working on Go Analytics for the better part of a decade and are super proud of what we’ve created. If you’d like to learn more, or are interested in a job, contact us anytime at <a href="mailto: themes@getbootstrap.com">themes@getbootstrap.com</a>.
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-2 col-sm-offset-1 m-b-md">
+          <ul class="list-unstyled list-spaced">
+            <li class="m-b"><h6 class="text-uppercase">Product</h6></li>
+            <li class="text-muted">Features</li>
+            <li class="text-muted">Examples</li>
+            <li class="text-muted">Tour</li>
+            <li class="text-muted">Gallery</li>
+          </ul>
+        </div>
+        <div class="col-sm-2 m-b-md">
+          <ul class="list-unstyled list-spaced">
+            <li class="m-b"><h6 class="text-uppercase">Apis</h6></li>
+            <li class="text-muted">Rich data</li>
+            <li class="text-muted">Simple data</li>
+            <li class="text-muted">Real time</li>
+            <li class="text-muted">Social</li>
+          </ul>
+        </div>
+        <div class="col-sm-2 m-b-md">
+          <ul class="list-unstyled list-spaced">
+            <li class="m-b"><h6 class="text-uppercase">Legal</h6></li>
+            <li class="text-muted">Terms</li>
+            <li class="text-muted">Legal</li>
+            <li class="text-muted">Privacy</li>
+            <li class="text-muted">License</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock footer %}
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://use.fontawesome.com/8f54afa206.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/toolkit.js' %}"></script>
+    <script src="{% static 'js/application.js' %}"></script>
+  </body>
+</html>
